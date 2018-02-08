@@ -5,7 +5,7 @@ It asks user to fill a questionnaire and finds a friend who are  similar based o
 ##Tech Used
 * Node
 * Express
-*Body-Parser
-*Path
+* Body-Parser
+* Path
 
 ##App link: ( )
