@@ -24,14 +24,14 @@ module.exports = function(app) {
       }
      resDifference.push(difference);
     }
-    // console.log(resDifference);
-    // console.log(Math.min(...resDifference))
+         console.log("Array of differences"+resDifference);
+         console.log("Lowest difference"+ Math.min(...resDifference))
 
-    //    console.log(resDifference.indexOf(Math.min(...resDifference))); 
-    
-    res.json(friends[resDifference.indexOf(Math.min(...resDifference))]);
+            console.log("Index of lowest difference"+ resDifference.indexOf(Math.min(...resDifference))); 
+        //find index of  min value in the array and then  return matching friends array element
+    res.json(friends[resDifference.indexOf(Math.min(...resDifference))]);  
    
-    friends.push(req.body);
+    friends.push(req.body);//push latest request into friends array
     
   });
 

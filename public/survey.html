@@ -164,15 +164,15 @@
 					      
 					      <div class="modal-content">
 					        <div class="modal-header">
-					          <h4 class="modal-title">Your Friend Match</h4>
+					          <h4 class="modal-title text-primary">Your Friend Match Result</h4>
 					        </div>
-					        <div class="modal-body">
-					          <div id="matchName"></div>
+					        <div class="modal-body ">
+					          <div id="matchName" class="text-success"></div>
 					          <div id="matchPhoto"></div>
 
 					        </div>
 					        <div class="modal-footer">
-					          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					          <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
 					        </div>
 					      </div>
 					      
@@ -210,15 +210,16 @@
    
     $(".submit").on("click", function(event) {
       event.preventDefault();
-     //form validation
-	   
+     //empty modals
+	   $("#matchName").empty();
+	   $("#matchPhoto").empty();
 		var fill=true;
-	 
+	 //form validation
 	  	function test1(){
 		  	$(".check" ).each(function() {
 	  			if($(this).val()===""){
 	  				 fill =false;
-	  				 console.log("empty");
+	  				 //console.log("empty");
 	  			}
 	  			
 			});
@@ -228,7 +229,7 @@
 			$(".check1" ).each(function() {
 	  			if($(this).val()===""){
 	  				  fill =false;
-	  				   				 console.log("empty");
+	  				   				// console.log("empty");
 	  			}
 	  			
 			});
@@ -236,7 +237,7 @@
 		}
 		
         //console.log("s"+ test1()+test2());
-	    if (test1() && test2())//valid
+	    if (test1() && test2())//if both are true 
 	    {
 	      
 	      var newResponse = {
@@ -256,11 +257,11 @@
 	             
 			    
 
-	             console.log(data);
+	             //console.log(data);
 	            $("#matchName").append(data.name);
 	            //add image to modal
-	            $('<img src='+ data.photo +'>').load(function() {
-				  $(this).width(200).height(200).appendTo('#matchPhoto');
+	            $("<img src="+ data.photo +">").load(function() {
+				  $(this).width(200).height(200).appendTo("#matchPhoto");
 				});
 
 	         
@@ -271,11 +272,13 @@
 	            $('#q5').val(""),$('#q6').val(""),
 	            $('#q7').val(""),$('#q8').val(""),
 	            $('#q9').val(""),$('#q10').val("")
+
 	          	
 	        });
 	    }else{
 
 	      	alert("Fill all questions in survey completely");
+	      	$("#matchName").append("Fill all questions to get your MATCH!");
 	      	
 	    }  
 
